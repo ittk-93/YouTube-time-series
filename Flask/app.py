@@ -1,8 +1,13 @@
 from flask import Flask, redirect, render_template, request
 from yt_dlp import YoutubeDL
+import requests
 
-def get_video_id(url):
-    return url.split('=')[-1].split('&')[0]
+def get_valid_url(url):
+    res = requests.get(url)
+    return res.url
+
+def get_video_id(valid_url):
+    return valid_url.split('=')[1].split('&')[0]
 
 def get_channel_id(video_id):
     url = f'https://www.youtube.com/watch?v={video_id}'
@@ -35,7 +40,12 @@ def index():
 @app.route('/redirect_to_yt', methods=['POST'])
 def redirect_to_youtube():
     url = request.form.get('url')
-    video_id = get_video_id(url)
+    if url == '':
+        return redirect('/error')
+    valid_url = get_valid_url(url)
+    if not valid_url.startswith('https://www.youtube.com/watch?v='):
+        return redirect('/error')
+    video_id = get_video_id(valid_url)
     return redirect(get_playlist_url(video_id))
 
 if __name__ == 'main':
