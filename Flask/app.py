@@ -1,7 +1,11 @@
 from flask import Flask, render_template
 from logic import get_dic
+from youtube_tools import MyYouTubeAPI
 
 app = Flask(__name__)
+
+API_KEY = 'AIzaSyAzwO6lyH3vVTEEwDUQpzYKYJ7O13x3W84'
+myt = MyYouTubeAPI(API_KEY)
 
 # 前後1本ずつで固定ではなく可変にしたい
 @app.route('/<string:video_id>')
