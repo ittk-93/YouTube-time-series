@@ -49,4 +49,4 @@ def redirect_to_youtube():
     return redirect(get_playlist_url(video_id))
 
 if __name__ == 'main':
-    app.run(debug=True)
+    app.run()
