@@ -54,13 +54,17 @@
     <script type="text/javascript">
       function validation() {
         const url = document.forms[0].keywords.value;
+        if (url == "") {
+          alert("何も入力されていません");
+          return false;
+        }
         const domain = url.split("/")[2];
         const domains = ["www.youtube.com", "m.youtube.com", "youtu.be"];
-        if (url == "" || !domains.includes(domain)) {
+        if (domains.includes(domain)) {
+          return true;
+        } else {
           alert("YouTube動画のURLを入力してください");
           return false;
-        } else {
-          return true;
         }
       }
     </script>
