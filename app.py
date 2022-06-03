@@ -10,7 +10,7 @@ def get_valid_url(url):
 
 # 必ずしもパラメーターがvから始まるとは限らないため正規表現を使う
 def get_video_id(valid_url):
-    video_id = re.search(r'v=([1-9a-zA-Z]{11})', valid_url).group(1)
+    video_id = re.search(r'v=([1-9a-zA-Z\-\_]{11})', valid_url).group(1)
     return video_id
 
 def get_channel_id(video_id):
