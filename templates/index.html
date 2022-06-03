@@ -59,7 +59,12 @@
           return false;
         }
         const domain = url.split("/")[2];
-        const domains = ["www.youtube.com", "m.youtube.com", "youtu.be"];
+        const domains = [
+          "youtube.com",
+          "www.youtube.com",
+          "m.youtube.com",
+          "youtu.be",
+        ];
         if (domains.includes(domain)) {
           return true;
         } else {
