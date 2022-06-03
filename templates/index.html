@@ -51,17 +51,10 @@
         <button type="submit" class="btn btn-primary">YouTubeへ移動</button>
       </form>
     </div>
-    <script type="text/javascript">
-      function validation() {
-        const url = document.forms[0].url.value;
-        if (url == "" || !url.includes("youtube")) {
-          alert("YouTube動画のURLを入力してください");
-          return false;
-        } else {
-          return true;
-        }
-      }
-    </script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static') filename='js/validation.js'}}"
+    ></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
