@@ -3,6 +3,7 @@
 ## Overview
 
 このアプリはherokuで公開されています。
+
 https://youtube-time-series.herokuapp.com/
 
 YouTube動画のURLを入力すると、その投稿チャンネルの動画一覧のプレイリストへ移動します。
